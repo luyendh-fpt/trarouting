@@ -8,30 +8,22 @@ import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HeroListComponent} from './module/hero/hero-list/hero-list.component';
 import {ProductListComponent} from './module/product/product-list/product-list.component';
-
-const routes: Routes = [
-  {
-    path: 'hero',
-    component: HeroListComponent
-  },
-  {
-    path: 'product',
-    component: ProductListComponent
-  }
-];
+import {HeroModule} from './module/hero/hero.module';
+import {ProductModule} from './module/product/product.module';
+import {MyRouteModule} from './my-route/my-route.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SidebarComponent,
-    HeroListComponent,
-    ProductListComponent
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    HeroModule,
+    ProductModule,
+    MyRouteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

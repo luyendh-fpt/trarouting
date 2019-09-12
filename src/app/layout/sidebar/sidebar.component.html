@@ -1,5 +1,12 @@
 <ul>
-  <li><a routerLink="hero">Hero List</a></li>
-  <li><a routerLink="product">Product List</a></li>
-  <li><a href="#">nothing</a></li>
+  <li *ngFor="let module of routeGroups">
+    {{module.name}}
+    <ul>
+      <span *ngFor="let children of module.children">
+      <li *ngIf="children.data.display">
+        <a [routerLink]="[module.path, children.path]">{{children.data.name}}</a>
+      </li>
+      </span>
+    </ul>
+  </li>
 </ul>
